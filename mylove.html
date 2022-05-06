@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>!I love it!</title>
+    <style>
+    .main-content {
+    width: 95%;
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-gap: 20px;
+    }
+
+    .card {
+    display: flex;
+    flex-direction: column;
+    }
+
+    .btn {
+    margin-top: auto;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+    body {
+    font-size: 1rem;
+    line-height: 1.5;
+    font-family: 'Raleway', sans-serif;
+    margin: 0;
+    background-color: beige;
+    }
+    a {
+    color: #232323;
+    text-decoration: none;
+    }
+    h1, h3 {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align:center;
+    }
+    p {
+    color: #fff; 
+    padding:0;
+    margin:0;
+    }
+    .main-content {
+    margin: 2em auto;
+    }
+    .card {
+    position:relative;
+    padding: 2em 1em;
+    border: 1px solid #e1e1e1;
+    border-radius: 0.25em;
+    background: gray;
+    z-index:1;
+    }
+    #c1::after{
+        content: "";
+        background: url(/MyHomepage/picture/물회.jpg);
+        background-size: cover;
+        opacity: 0.5;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+    }
+
+    #c2::after{
+        content: "";
+        background: url(/MyHomepage/picture/흑돼지.jpg);
+        background-size: cover;
+        opacity: 0.5;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+    }
+
+    #c3::after{
+        content: "";
+        background: url(/MyHomepage/picture/대하.jpg);
+        background-size: cover;
+        opacity: 0.5;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+    }
+
+    #c4::after{
+        content: "";
+        background: url(/MyHomepage/picture/냉채족발.jpg);
+        background-size: cover;
+        opacity: 0.5;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+    }
+
+    #c5::after{
+        content: "";
+        background: url(/MyHomepage/picture/뻘다방.jpg);
+        background-size: cover;
+        opacity: 0.5;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+    }
+
+    #c6::after{
+        content: "";
+        background: url(/MyHomepage/picture/서울와인.jpg);
+        background-size: cover;
+        opacity: 0.5;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        right: 0px;
+        bottom: 0px;
+    }
+
+    .card h3 {
+    color: #fff; 
+    margin: 0.35em 0 0;
+    line-height: 2rem;
+    font-weight:bold;
+    
+    }
+    .line {
+        background-size: 20%;
+        height:20px;
+        background-repeat: no-repeat;
+        background-position: left 0; 
+    }
+
+    .card::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transform: scaleY(0);
+        transform-origin: top center;
+        background:burlywood;
+        z-index: -1;
+        transition: transform 0.3s;
+    }
+    .card:hover::after {
+        transform: scaleY(1);
+    }
+    .mytitle {
+        position: static;
+        padding: 20px 0;
+        display: inline-block;
+        letter-spacing: 2px;
+        width: 100%;
+        text-align: center;
+    }
+    .mytitle h5 {
+        margin-bottom: 0px;
+        display: block;
+        text-transform: uppercase;
+    }
+    .mytitle span {
+        font-size: 12px;
+        text-transform: uppercase;
+        color: #a5a5a5;
+        letter-spacing: 1px;
+    }
+    /* img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 10%;
+    } */
+    </style>
+</head>
+<body>
+    <h1>여행속 맛집을 찾아서</h1>
+    <hr>
+    <h3>😵‍💫 꼬르륵 꼬르륵 😵‍💫</h3>
+    <div class="main-content">
+        <a href="https://map.naver.com/v5/search/%EA%B0%95%EB%A6%89%EB%AC%BC%ED%9A%8C/place/456670628?placePath=%3Fentry=pll%26from=nx%26fromNxList=true&c=14339678.6715321,4566311.3189019,15,0,0,0,dh" target="_blank">  
+            <div class="card" id="c1">
+                <!-- <img src="/MyHomepage/picture/물회.jpg"> -->
+                <h3>강릉</h3>
+                <div class="line"></div>
+                 <p>추천맛집 : 해오름자연산횟집 </p>
+                 <p>강릉의 시원한 바람에 맞게 온 몸이 시원한 물회맛집을 소개합니다!</p>
+            </div>
+        </a>
+
+        <a href="https://map.naver.com/v5/search/%EC%A0%9C%EC%A3%BC%20%EB%B0%94%EB%8B%A4%EB%A5%BC%20%EB%B3%B8%EB%8F%BC%EC%A7%80/place/37578246?placePath=%3Fentry=pll%26from=nx%26fromNxList=true&c=14047353.9113479,3943940.6396320,15,0,0,0,dh" target="_blank"> 
+            <div class="card" id="c2">
+                <h3>제주도</h3>
+                <div class="line"></div>
+                <p>추천맛집 : 제주를 본 돼지</p>
+                <p>제주도는 해산물이 엄청 유명하고 맛있지만, 또다른 별미는 바로
+                    흑돼지구이!
+                </p>
+            </div>
+        </a>
+
+        <a href="https://map.naver.com/v5/search/%EA%B0%95%ED%99%94%EB%8F%84%EB%8C%80%ED%95%98%EA%B5%AC%EC%9D%B4/place/11674160?placePath=%3Fentry=pll%26from=nx%26fromNxList=true&c=14070687.6788687,4532029.9277909,15,0,0,0,dh" target="_blank"> 
+            <div class="card" id="c3"> 
+                <h3>강화도</h3>
+                <div class="line"></div>
+                <p>추천맛집 : 해운정양식장</p>
+                <p>제철에 신선한 대하를 노을을 바라보며 먹을 수 있는 분위끼까지 
+                잡은 맛집!
+                </p>
+            </div> 
+        </a>
+
+        <a href="https://map.naver.com/v5/search/%EB%B6%80%EC%82%B0%20%EB%83%89%EC%B1%84%EC%A1%B1%EB%B0%9C/place/11833755?c=14356656.9644206,4177316.2782080,12,0,0,0,dh&placePath=%3Fentry%253Dpll" target="_blank"> 
+            <div class="card" id="c4">
+                <h3>부산</h3>
+                <div class="line"></div>
+                <p>추천맛집 : 부산족발</p>
+                <p>냉체족발이 일품인 부산의 족발맛집! 부산은 먹거리가 많지만
+                    족발도 굿!
+                </p>
+            </div>
+        </a>
+
+        <a href="https://map.naver.com/v5/search/%EB%BB%98%EB%8B%A4%EB%B0%A9/place/36643073?c=14084462.1856802,4471795.5933475,15,0,0,0,dh&placePath=%3Fentry%253Dpll" target="_blank"> 
+            <div class="card" id="c5">
+                <h3>선재도</h3>
+                <div class="line"></div>
+                <p>추천맛집 : 뻘다방</p>
+                <p>해외에 나가있는 착각이 들만큼 이국적인 바닷가 카페
+                    해질녘에 GoGo!
+                </p>
+            </div>
+        </a>
+
+        <a href="https://map.naver.com/v5/search/%EC%84%9C%EC%9A%B8%EB%A7%9B%EC%A7%91/place/1142743532?c=14128900.4032033,4516433.8926679,13,0,0,0,dh&placePath=%2Fhome%3Fentry=pll" target="_blank"> 
+            <div class="card" id="c6">
+                <h3>서울</h3>
+                <div class="line"></div>
+                <p>추천맛집 : 와인로그</p>
+                <p>서울에서 즐기는 분위기 좋은 와인바! 
+                    스테이크로제파스타 강추!! </p>
+            </div>
+            </a>
+     </div>
+    
+    <footer>
+    <br><br><br><br><br>
+    <hr>
+    <div class="mytitle">
+        <h5>추천인 : 고두현</h5>
+        <span>여행 &amp; 맛집</span>
+    </div>
+    </footer>
+</body>
+</html>

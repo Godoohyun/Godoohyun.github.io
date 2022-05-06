@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>who R U ?</title>
+    <script src="js/jquery-3.6.0.js"></script>
+    <style>
+    /* 폰트 설정 */
+    @font-face {
+        font-family: "GmarketSansMedium";
+        src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff")
+            format("woff");
+        font-weight: normal;
+        font-style: normal;
+    }
+    body {
+        font-family: "GmarketSansMedium";
+        text-underline-position: under;
+        background-color:rgb(214, 215, 217);
+    }
+    .info {
+        width: 220px;
+    }
+    input:focus{
+        border-color:black;
+    }
+
+    table#enroll{
+        /* border: 1px solid; */
+        border-spacing:15px;
+        width: 500px;
+        margin: 0 auto;
+        background-color:rgb(214, 214, 207);
+        /* border-radius: 8%; */
+        box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+    table#enroll th{
+        text-align:right;
+    }
+    table#enroll td.btn-wrapper{
+        text-align: center;
+    }
+    .phone {
+        width:30px;
+    }
+    span.req{
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        color:red;
+    }
+    .short{
+        width:50px;
+    }
+    h2 {
+        font-family: "GmarketSansMedium";
+        text-align: center;
+    }
+
+    #tb-guest {
+        border: 1px solid #000;
+        border-collapse: collapse;
+        margin: 10px 0;
+        margin-left: auto; 
+        margin-right: auto;
+        width: 600px;
+    }
+    #tb-guest thead {
+        text-align: center;
+        background-color: rgb(65, 65, 65);
+        color: aliceblue;
+    }
+    #tb-guest tbody {
+        text-align: center;
+    }
+    #tb-guest th , #tb-guest td{
+        border: 0.5px solid #000;
+        padding: 5px;
+    }
+    #btn1 {
+        width: 80px;
+        margin: auto;
+        display: block;
+    }
+    /* .box {
+        border: 3px solid black;
+        padding : 10px 10px 10px 10px;
+        margin: 15px 15px 15px 15px;
+        width: auto;
+        height: auto;
+        background-color:gray;
+    } */
+    .btn-wrapper input {
+        text-transform: uppercase;
+        background: #0a0a0a;
+        width: auto;
+        border: 0;
+        padding: 10px;
+        color: #FFFFFF;
+        font-size: 14px;
+        cursor: pointer;
+        border-radius: 20%;
+    } 
+    .btn-wrapper :hover,.form button:active,.form button:focus {
+        background: #747574;
+    }  
+    </style>
+   
+</head>
+<body>
+    <form action="javascript:saveGeust();" name="memberFrm">
+    <h2>회원가입</h2>
+        <table id="enroll">
+            <tr>
+                <th><span class="req">* </span>아이디</th>
+                <td>
+                    <input type="text" name="userId" id="userId" class="info" placeholder="아이디를 입력해주세요." required style="border: solid 1px rgb(233, 232, 232);" value>
+                </td>
+            </tr>
+            <tr>
+                <th><span class="req">* </span>비밀번호</th>
+                <td>
+                    <input type="password" name="pwd" id="pwd" class="info" placeholder="비밀번호를 입력해주세요." required style="border: solid 1px rgb(233, 232, 232);" value>
+                </td>
+            </tr>
+            <tr>
+                <th>비밀번호확인</th>
+                <td>
+                    <input type="password" id="pwdCheck" class="info" placeholder="비밀번호를 다시한번 입력해주세요." required style="border: solid 1px rgb(233, 232, 232);" value>
+                </td>
+            </tr>
+            <tr>
+                <th><span class="req">* </span>이름</th>
+                <td>
+                    <input type="text" name="userName" id="userName" class="info" placeholder="이름을 알려주세요." required style="border: solid 1px rgb(233, 232, 232);" value> 
+                </td>
+            </tr>
+            <tr>
+                <th><span class="req">* </span>주민번호</th>
+                <td>
+                    <input type="text" name="ssn1" id="ssn1" class="short" > -
+                    <input type="password" name="ssn2" id="ssn2" class="short" >
+                </td>
+            </tr>
+            <tr>
+                <th>이메일<span class="req"></span></th>
+                <td>
+                    <input type="email" name="email" id="email" class="info" placeholder="example@naver.com" style="border: solid 1px rgb(233, 232, 232);">
+                </td>
+            </tr>
+            <tr>
+                <th><span class="req">* </span>전화번호</th>
+                <td>
+                    <input type="text" name="tel1" id="tel1" class="phone"> -
+                    <input type="text" name="tel2" id="tel2" class="phone"> -
+                    <input type="text" name="tel3" id="tel3" class="phone">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="btn-wrapper">
+                    &nbsp;&nbsp;&nbsp;<input type="submit" value="회원가입">&nbsp;
+                    <input type="reset" value="초기화">
+                </td>
+            </tr>
+            <tr>
+                <td><span class="req">* </span>표시 반드시 입력</td>
+            </tr>
+        </table>
+        <br>
+        <hr>
+        <h2>회원정보 조회</h2>
+        <button id="btn1" type="button">조 회</button>
+        <div id="hide" type="box" class="box">
+        <table id="tb-guest">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>UserId</th>
+                    <th>이름</th>
+                    <th>이메일</th>
+                    <th>전화번호</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        </div>
+        
+    </form>
+
+
+    <script>
+
+    btn1.addEventListener('click', () =>{
+        renderGuestbook();
+    });
+
+    const saveGeust = () =>{
+        console.log('saveGuest 호출!');
+        const userIdVal = userId.value;
+        const userNameVal = userName.value;
+        const emailVal = email.value;
+        const telVal = tel1.value + tel2.value + tel3.value;
+
+        // 방명록객체 생성
+        const guestbook = new GuestBook(userIdVal, userNameVal, emailVal, telVal);
+        console.log(guestbook);
+
+        // guestbooks배열 관리
+        const guestbooks = JSON.parse(localStorage.getItem('guests')) || [];
+        guestbooks.push(guestbook);
+
+        localStorage.setItem('guests', JSON.stringify(guestbooks))
+
+        // 폼초기화
+        document.memberFrm.reset();
+
+        // 화면 render
+        renderGuestbook(guestbooks);
+    };
+
+    class GuestBook {
+        constructor(userid, username, email, tel){
+            this.userid = userid;
+            this.username = username;
+            this.email = email;
+            this.tel = tel;
+        }
+    };
+
+    const renderGuestbook = (guestbooks = JSON.parse(localStorage.getItem('guests'))) => {
+        const tbody = document.querySelector('#tb-guest tbody');
+        tbody.innerHTML = ""; // 초기화
+
+        guestbooks.forEach((guestbook, index) => {
+            const {userid, username, email, tel} = guestbook;
+            const html = `<tr>
+                <td>${index + 1}</td>
+                <td>${userid}</td>
+                <td>${username}</td>
+                <td>${email}</td>
+                <td>${tel}</td>
+                </tr>`;
+            tbody.innerHTML += html; // html, tag객체 모두 추가 가능
+        });
+    };
+
+
+        // 비밀번호/비밀번호 체크 일치여부 검사
+        document.querySelector('#pwdCheck').onblur = isEqualPwd;
+        document.memberFrm.onsubmit = function(){
+    
+            const userId = document.getElementById("userId");
+            const pwd = document.getElementById("pwd");
+            const pwdCheck = document.getElementById("pwdCheck");
+            const userName = document.getElementById("userName");
+            const email = document.getElementById("email");
+            const ssn1 = document.getElementById("ssn1");
+            const ssn2 = document.getElementById("ssn2");
+            const tel1 = document.getElementById("tel1");
+            const tel2 = document.getElementById("tel2");
+            const tel3 = document.getElementById("tel3");
+    
+            //1.아이디검사
+            //첫글자는 반드시 영소문자로 이루어지고, 
+            //숫자가 하나이상 포함되어야함.
+            //아이디의 길이는 4~12글자사이
+            const regExp1 = /^[a-z][a-z\d]{3,11}$/;
+            const regExp2 = /[0-9]/;
+            if(!regExpTest(regExp1
+                          ,userId
+                          ,"아이디는 영소문자로 시작하는 4~12글자입니다."))
+                return false; // 폼 제출을 방지
+            if(!regExpTest(regExp2
+                          ,userId
+                          ,"아이디는 숫자를 하나이상 포함하세요."))
+                return false;
+    
+    
+            //2.비밀번호 확인 검사
+            //숫자/문자/특수문자/ 포함 형태의 8~15자리 이내의 암호 정규식 
+            //전체길이검사 /^.{8,15}$/
+            //숫자하나 반드시 포함 /\d/ 
+            //영문자 반드시 포함 /[a-zA-Z]/
+            //특수문자 반드시 포함  /[\*!&]/
+                
+            const regExpArr = [/^.{8,15}$/, /\d/, /[a-zA-Z]/, /[\\*!&]/];
+    
+            for(let i = 0; i < regExpArr.length; i++){
+                if(!regExpTest(regExpArr[i], pwd, "비밀번호는 8~15자리 숫자/문자/특수문자를 포함해야합니다.")){
+                    return false;
+                }
+            }
+            
+            //비밀번호일치여부
+            if(!isEqualPwd()){
+                return false;
+            }
+    
+            //3.이름검사
+            //한글2글자 이상만 허용. 
+            const regExp3 = /^[가-힣]{2,}$/;
+            if(!regExpTest(regExp3,userName,"한글2글자이상 입력하세요."))
+                return false;
+    
+            //4.주민번호체크
+            const regExp4 = /^\d{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[01])$/;
+            const regExp5 = /^[1234]\d{6}$/;
+            if(!regExpTest(regExp4,ssn1,"숫자만 입력하세요."))
+                return false;
+            if(!regExpTest(regExp5,ssn2,"숫자만 입력하세요."))
+                return false;
+    
+            if(!ssnCheck(ssn1.value,ssn2.value)){
+                alert("올바른 주민번호가 아닙니다.");
+                return false;
+            }
+    
+            //5.이메일 검사
+            // 4글자 이상(\w = [a-zA-Z0-9_], [\w-\.]) @가 나오고
+            // 1글자 이상(주소). 글자 가 1~3번 반복됨
+            if(!regExpTest(/^[\w]{4,}@[\w]+(\.[\w]+){1,3}$/, email, "이메일 형식에 어긋납니다."))
+                    return false;
+    
+            
+            
+            //6. 전화번호 검사
+            // 전화번호 앞자리는 010, 두번째 자리는 3~4자리 숫자, 세번째 자리는 4자리 숫자
+            if (!regExpTest(/^010$/, tel1, "번호 2자리 이상 입력"))
+                    return false;
+            if (!regExpTest(/^[0-9]{3,4}$/, tel2, "번호 3자리 이상 입력"))
+                    return false;
+            if (!regExpTest(/^[0-9]{4}$/, tel3, "4자리 번호 입력"))
+                    return false;
+    
+            return true;
+            
+            if(!userId) {
+                alert('입력오류!');
+                e.preventDefault();
+                return;
+            }
+            if(!userName) {
+                alert('입력오류!');
+                e.preventDefault();
+                return;
+            }
+            // if(!email) {
+            //     alert('입력오류!');
+            //     e.preventDefault();
+            //     return;
+            // }
+            if(!ssn1) {
+                alert('입력오류!');
+                e.preventDefault();
+                return;
+            }
+            if(!ssn2) {
+                alert('입력오류!');
+                e.preventDefault();
+                return;
+            }
+            if(!tel1) {
+                alert('입력오류!');
+                e.preventDefault();
+                return;
+            }
+            if(!tel2) {
+                alert('입력오류!');
+                e.preventDefault();
+                return;
+            }
+            if(!tel3) {
+                alert('입력오류!');
+                e.preventDefault();
+                return;
+            }
+            else{
+                saveGeust();
+            }
+
+
+        }
+    
+        function ssnCheck(ssn1, ssn2){
+            const ssn = ssn1+ssn2;
+            /*
+                주민등록번호 체계 및 유효성 검사 (javascript)	
+                https://eyecandyzero.tistory.com/240	
+    
+                //900909-1234561
+                const total = 9*2 + 0*3 + 0*4 + 9*5 + 0*6 + 9*7 + 1*8 + 2*9 + 3*2 + 4*3 + 5*4 + 6*5;//220
+                const result = total%11;//0
+                result = 11-0;//11
+                result = result%10;//1
+    
+                if(result == 13번째자리수) return true;
+                else return false;
+    
+            */
+            const total = 0;
+            for(const i=0; i<12; i++){
+                if(i<8){
+                    total += parseInt(ssn.substr(i,1))*(i+2);
+                }
+                else {
+                    total += parseInt(ssn.substr(i,1))*(i-6);
+                }
+            }
+            //마지막수와 비교할 수 구하기
+            const result = (11-(total%11))%10;
+            //마지막수(13번째 자리)
+            const num13 = parseInt(ssn.substr(12,1));
+            console.log(result+'=='+num13);
+            //결과
+            if(result==num13)
+                return true;
+            else 
+                return false;
+        }
+    
+        function isEqualPwd(){
+            if(pwd.value == pwdCheck.value){
+                return true;
+            }
+            else{
+                alert("비밀번호가 일치하지 않습니다.");
+                pwd.select();
+                return false;
+            }
+        }
+    
+        function regExpTest(regExp, el, msg){
+            if(regExp.test(el.value))
+                return true;
+            //적합한 문자열이 아닌 경우
+            alert(msg);
+            el.value="";
+            el.focus();
+            return false;
+        }
+
+
+        </script>
+
+</body>
+</html>
